@@ -3,95 +3,513 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio of Hagen Carriere</title>
+    <title>Hagen Carriere — Game Developer & Engine Programmer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #0c0c0e;
+            --bg-card: #16161a;
+            --bg-card-hover: #1c1c22;
+            --text: #e8e6e3;
+            --text-muted: #8b8991;
+            --text-dim: #5a585f;
+            --accent: #c9a84c;
+            --accent-dim: rgba(201, 168, 76, 0.12);
+            --border: #2a2a30;
+            --tag-bg: #1e1e24;
+            --tag-text: #9d9ba1;
+            --radius: 10px;
+            --max-w: 720px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ---- NAV ---- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(12, 12, 14, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .inner {
+            max-width: var(--max-w);
             margin: 0 auto;
-            padding: 20px;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        h1, h2 {
-            color: #333;
+        nav .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--accent);
+            letter-spacing: -0.3px;
         }
-        ul {
-            list-style: none;
-            padding: 0;
+        nav .links { display: flex; gap: 28px; }
+        nav .links a {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            transition: color 0.2s;
         }
-        li {
+        nav .links a:hover { color: var(--text); }
+
+        /* ---- HERO ---- */
+        .hero {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 120px 24px 64px;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 44px);
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -1px;
             margin-bottom: 20px;
         }
-        a {
+        .hero h1 .accent { color: var(--accent); }
+        .hero .subtitle {
+            font-size: 17px;
+            color: var(--text-muted);
+            max-width: 520px;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+        .hero-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .hero-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-muted);
             text-decoration: none;
-            color: #1a0dab;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: all 0.2s;
         }
-        a:hover {
-            text-decoration: underline;
+        .hero-links a:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: var(--accent-dim);
         }
-        .project-description {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #666;
+        .hero-links a svg {
+            width: 15px;
+            height: 15px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ---- SECTION ---- */
+        section {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 32px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ---- SKILLS ---- */
+        .skills-section { margin-bottom: 72px; }
+        .skill-group { margin-bottom: 20px; }
+        .skill-group-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--tag-text);
+            background: var(--tag-bg);
+            padding: 5px 12px;
+            border-radius: 5px;
+            border: 1px solid var(--border);
+        }
+
+        /* ---- PROJECTS ---- */
+        .projects-section { margin-bottom: 72px; }
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 16px;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+        .project-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 12px;
+        }
+        .project-title {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+        .project-card:hover .project-title { color: var(--accent); }
+        .project-type {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-dim);
+            white-space: nowrap;
+            padding: 3px 10px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        .project-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-bottom: 12px;
+        }
+        .project-role {
+            font-size: 13px;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .project-tags span {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--tag-text);
+            background: var(--tag-bg);
+            padding: 3px 10px;
+            border-radius: 4px;
+        }
+        .arrow-icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: 4px;
+            vertical-align: middle;
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: all 0.2s;
+        }
+        .project-card:hover .arrow-icon {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ---- EXPERIENCE ---- */
+        .exp-section { margin-bottom: 72px; }
+        .exp-item {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .exp-item:last-child { border-bottom: none; }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .exp-company {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .exp-dates {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        .exp-role {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .exp-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* ---- EDUCATION ---- */
+        .edu-section { margin-bottom: 72px; }
+        .edu-school {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .edu-degree {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+        .edu-detail {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        footer .copy {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+        footer .footer-links { display: flex; gap: 20px; }
+        footer .footer-links a {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        footer .footer-links a:hover { color: var(--accent); }
+
+        /* ---- ANIMATIONS ---- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 0.5s ease forwards;
+        }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 520px) {
+            .hero { padding: 100px 20px 48px; }
+            section { padding: 0 20px; }
+            .project-header { flex-direction: column; }
+            .exp-header { flex-direction: column; }
+            nav .links { gap: 16px; }
+            nav .links a { font-size: 12px; }
         }
     </style>
 </head>
 <body>
 
-<h1>Hagen Carriere Portfolio</h1>
-
-<p class="intro">Hi, I'm Hagen Carriere; a game developer and engine programmer passionate about video games and their creation. My work spans C++, C#, Python, and Lua. I'm always exploring new ways to push interactive experiences forward and create the most entertaining interactions.</p>
-
-
-<li>
-    <a href="https://drive.google.com/file/d/1ui3GOMvWDV04g7Oqa54Twnv9vfB1LyuM/view?usp=sharing">Resume</a>
-</li>
-
-
-<h2>Projects</h2>
-
-<ul>
-    <li>
-        <a href="https://github.com/Hagen-Carriere/youMadeItEngine/tree/main"><img src="YouMadeIt.png" alt="YouMadeIt Icon" style="height: 100px; vertical-align: middle; margin-right: 8px;">YouMadeIt Engine</a>
-        <div class="project-description">
-            <strong>Description:</strong> C++ game engine with lua as a guest language. 
-            <br>
-            <strong>Contributions:</strong> I developed the engine and used technologies such as SDL for window management, Box2D for physics, LuaBridge for lua integration, and Tiled for level design.
-            <br>
-            <strong>Technologies Used:</strong> C++, Lua, Tiled, GLM, LuaBridge, SDL, Box2D
+<nav>
+    <div class="inner">
+        <div class="logo">hagen.dev</div>
+        <div class="links">
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="https://drive.google.com/file/d/1ui3GOMvWDV04g7Oqa54Twnv9vfB1LyuM/view?usp=sharing" target="_blank">Resume</a>
         </div>
-    </li>
-    <li>
-        <a href="https://landens.itch.io/card-king">Card King</a>
-        <div class="project-description">
-            <strong>Description:</strong> Deckbuilding adventure game, with a top down view. Battles are in real time with a recharging mana bar. Solo adventure with a side PvP mode.
-            <br>
-            <strong>Contributions:</strong> I developed the Cutscenes throughout the game as well as the scripted fights such as the tutorial and final boss.
-            <br>
-            <strong>Technologies Used:</strong> C# and Unity
+    </div>
+</nav>
+
+<div class="hero">
+    <h1 class="fade-in">Hagen Carriere<br><span class="accent">Game Developer &<br>Engine Programmer</span></h1>
+    <p class="subtitle fade-in delay-1">I build game engines, gameplay systems, and the tools around them. My work spans C++, C#, Python, and Lua — from low-level engine architecture to scripted gameplay logic.</p>
+    <p class="subtitle fade-in delay-1" style="margin-bottom: 32px; font-size: 14px;">University of Michigan · CS Engineering · 2025</p>
+    <div class="hero-links fade-in delay-2">
+        <a href="https://github.com/Hagen-Carriere" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/hagen-carriere-74424226a/" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+        </a>
+        <a href="mailto:Hagenc@umich.edu">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+        </a>
+    </div>
+</div>
+
+<section class="skills-section fade-in delay-3">
+    <div class="section-label">Skills</div>
+    <div class="skill-group">
+        <div class="skill-group-label">Languages</div>
+        <div class="skill-tags">
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Lua</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Fortran</span>
         </div>
-    </li>
-    <li>
-        <a href="https://hagenc.itch.io/zelda">p1-Zelda</a>
-        <div class="project-description">
-            <strong>Description:</strong> Recreation of the first dungeon from the original Legend of Zelda game in Unity. Pressing 4 gives access to a custom dungeon.
-            <br>
-            <strong>Contributions:</strong> I developed the core weapon system, Link sprite behavior, the secret rooms, and the custom weapon and it's mechanics.
-            <br>
-            <strong>Technologies Used:</strong> C# and Unity
+    </div>
+    <div class="skill-group">
+        <div class="skill-group-label">Tools & Platforms</div>
+        <div class="skill-tags">
+            <span class="skill-tag">Unity</span>
+            <span class="skill-tag">Unreal Engine</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Jira</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">Pytest</span>
+            <span class="skill-tag">GitHub Actions</span>
+            <span class="skill-tag">Jenkins</span>
         </div>
-    </li>
-    <li>
-        <a href="https://hagenc.itch.io/sliding-stars">Sliding Stars</a>
-        <div class="project-description">
-            <strong>Description:</strong> A platforming game with a unique mechanic where the player can spawn a clone and swap loactions with it.
-            <br>
-            <strong>Contributions:</strong> I developed the game including: core mechanic, the level design, and the player sprite behavior.
-            <br>
-            <strong>Technologies Used:</strong> C# and Unity
+    </div>
+</section>
+
+<section id="projects" class="projects-section">
+    <div class="section-label">Projects</div>
+
+    <a href="https://github.com/Hagen-Carriere/youMadeItEngine" target="_blank" class="project-card">
+        <div class="project-header">
+            <div class="project-title">youMadeIt Engine <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+            <div class="project-type">Engine</div>
         </div>
-    </li>
-    <!-- Add more projects as needed -->
-</ul>
+        <div class="project-desc">Custom 2D game engine built from scratch with a component-based actor system, deterministic Box2D physics, Lua scripting via LuaBridge, and Tiled map editor integration. Includes a 150+ case automated test suite with CI/CD.</div>
+        <div class="project-role">Sole developer — designed and built the full engine architecture, scripting layer, physics integration, and test framework.</div>
+        <div class="project-tags">
+            <span>C++</span>
+            <span>Lua</span>
+            <span>Box2D</span>
+            <span>SDL2</span>
+            <span>Pytest</span>
+            <span>GitHub Actions</span>
+        </div>
+    </a>
+
+    <a href="https://landens.itch.io/card-king" target="_blank" class="project-card">
+        <div class="project-header">
+            <div class="project-title">Card King <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+            <div class="project-type">Team Game</div>
+        </div>
+        <div class="project-desc">Real-time deckbuilding adventure with strategic combat, PvE progression, and PvP mode. Top-down perspective with a recharging mana system.</div>
+        <div class="project-role">Led implementation of core combat systems, cutscene scripting, and boss fight encounters. Managed sprints and milestones in Jira.</div>
+        <div class="project-tags">
+            <span>C#</span>
+            <span>Unity</span>
+            <span>Jira</span>
+        </div>
+    </a>
+
+    <a href="https://hagenc.itch.io/zelda" target="_blank" class="project-card">
+        <div class="project-header">
+            <div class="project-title">p1-Zelda <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+            <div class="project-type">Solo Game</div>
+        </div>
+        <div class="project-desc">Recreation of the first dungeon from the original Legend of Zelda, plus a custom dungeon with an original weapon mechanic.</div>
+        <div class="project-role">Built the core weapon system, Link sprite behavior, secret rooms, and custom weapon mechanics.</div>
+        <div class="project-tags">
+            <span>C#</span>
+            <span>Unity</span>
+        </div>
+    </a>
+
+    <a href="https://hagenc.itch.io/sliding-stars" target="_blank" class="project-card">
+        <div class="project-header">
+            <div class="project-title">Sliding Stars <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+            <div class="project-type">Solo Game</div>
+        </div>
+        <div class="project-desc">Platformer built around a unique clone-and-swap mechanic — spawn a clone, then teleport to its position to navigate levels.</div>
+        <div class="project-role">Designed and developed the core mechanic, level design, and player sprite behavior.</div>
+        <div class="project-tags">
+            <span>C#</span>
+            <span>Unity</span>
+        </div>
+    </a>
+</section>
+
+<section id="experience" class="exp-section">
+    <div class="section-label">Experience</div>
+
+    <div class="exp-item">
+        <div class="exp-header">
+            <div class="exp-company">University of Michigan</div>
+            <div class="exp-dates">May 2024 — Aug 2024</div>
+        </div>
+        <div class="exp-role">Nuclear Engineering & Radiological Research Assistant</div>
+        <div class="exp-desc">Diagnosed and fixed 20+ year-old logic defects in a legacy Fortran codebase through systematic tracing and verification testing. Refactored the radiation pulse analysis system to Python with improved testability and automated data validation. Designed testing procedures with cross-functional researchers to ensure reproducible outputs.</div>
+    </div>
+
+    <div class="exp-item">
+        <div class="exp-header">
+            <div class="exp-company">Oasis Advanced Engineering</div>
+            <div class="exp-dates">May 2022 — Aug 2022</div>
+        </div>
+        <div class="exp-role">Software Engineering Intern</div>
+        <div class="exp-desc">Built and executed test plans for a large-scale military training simulation. Developed Python tools to validate simulation outputs and identify anomalies. Implemented C++ data logging systems for structured capture of diagnostic information. Worked in Agile sprint cycles with daily standups.</div>
+    </div>
+</section>
+
+<section class="edu-section">
+    <div class="section-label">Education</div>
+    <div class="edu-school">University of Michigan</div>
+    <div class="edu-degree">Bachelor of Science in Engineering, Computer Science Engineering</div>
+    <div class="edu-detail">2025 · GPA 3.53 · Game Engine Dev, Cybersecurity, Data Structures, Algorithms</div>
+</section>
+
+<footer>
+    <div class="copy">Hagen Carriere · 2025</div>
+    <div class="footer-links">
+        <a href="https://github.com/Hagen-Carriere" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/hagen-carriere-74424226a/" target="_blank">LinkedIn</a>
+        <a href="mailto:Hagenc@umich.edu">Hagenc@umich.edu</a>
+    </div>
+</footer>
 
 </body>
 </html>
