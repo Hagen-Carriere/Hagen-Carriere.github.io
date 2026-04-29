@@ -3,22 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hagen Carriere — Game Developer & Engine Programmer</title>
-
-    <!-- Open Graph (LinkedIn, Facebook, Discord, etc.) -->
-    <meta property="og:title" content="Hagen Carriere — Software Engineer & Game Developer">
-    <meta property="og:description" content="C++, Python, and Lua across engines, simulations, and automated test systems. University of Michigan CS Engineering '25.">
-    <meta property="og:image" content="https://hagen-carriere.github.io/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://hagen-carriere.github.io">
+    <title>Hagen Carriere — Software Engineer</title>
+    <meta name="description" content="Software engineer building game engines, real-time simulations, and automated test systems in C++, Python, and Lua. University of Michigan CSE 2025.">
+    <meta property="og:title" content="Hagen Carriere — Software Engineer">
+    <meta property="og:description" content="Game engines, real-time simulations, and automated test systems — built in C++, Python, and Lua.">
     <meta property="og:type" content="website">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hagen Carriere — Software Engineer & Game Developer">
-    <meta name="twitter:description" content="C++, Python, and Lua across engines, simulations, and automated test systems.">
-    <meta name="twitter:image" content="https://hagen-carriere.github.io/og-image.png">
+    <meta property="og:url" content="https://hagen-carriere.github.io">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -39,9 +29,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'DM Sans', sans-serif;
             background: var(--bg);
@@ -52,112 +40,65 @@
 
         /* ---- NAV ---- */
         nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
+            position: fixed; top: 0; width: 100%; z-index: 100;
             background: rgba(12, 12, 14, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
         }
         nav .inner {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 14px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            max-width: var(--max-w); margin: 0 auto; padding: 14px 24px;
+            display: flex; justify-content: space-between; align-items: center;
         }
         nav .logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 500;
-            font-size: 15px;
-            color: var(--accent);
-            letter-spacing: -0.3px;
+            font-family: 'JetBrains Mono', monospace; font-weight: 500;
+            font-size: 15px; color: var(--accent); letter-spacing: -0.3px;
         }
         nav .links { display: flex; gap: 28px; }
         nav .links a {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-muted);
-            text-decoration: none;
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
-            transition: color 0.2s;
+            font-size: 13px; font-weight: 500; color: var(--text-muted);
+            text-decoration: none; letter-spacing: 0.3px;
+            text-transform: uppercase; transition: color 0.2s;
         }
         nav .links a:hover { color: var(--text); }
 
         /* ---- HERO ---- */
-        .hero {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 120px 24px 64px;
-        }
+        .hero { max-width: var(--max-w); margin: 0 auto; padding: 120px 24px 64px; }
         .hero h1 {
-            font-size: clamp(32px, 5vw, 44px);
-            font-weight: 600;
-            line-height: 1.15;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
+            font-size: clamp(32px, 5vw, 44px); font-weight: 600;
+            line-height: 1.15; letter-spacing: -1px; margin-bottom: 20px;
         }
         .hero h1 .accent { color: var(--accent); }
         .hero .subtitle {
-            font-size: 17px;
-            color: var(--text-muted);
-            max-width: 520px;
-            line-height: 1.7;
-            margin-bottom: 32px;
+            font-size: 17px; color: var(--text-muted);
+            max-width: 520px; line-height: 1.7; margin-bottom: 32px;
         }
-        .hero-links {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+        .hero .about-line {
+            font-size: 15px; color: var(--text-muted);
+            max-width: 520px; line-height: 1.7; margin-bottom: 32px;
         }
+        .hero-links { display: flex; gap: 12px; flex-wrap: wrap; }
         .hero-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            font-weight: 400;
-            color: var(--text-muted);
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            transition: all 0.2s;
+            display: inline-flex; align-items: center; gap: 7px;
+            font-family: 'JetBrains Mono', monospace; font-size: 13px;
+            font-weight: 400; color: var(--text-muted); text-decoration: none;
+            padding: 8px 16px; border: 1px solid var(--border);
+            border-radius: 6px; transition: all 0.2s;
         }
         .hero-links a:hover {
-            color: var(--accent);
-            border-color: var(--accent);
+            color: var(--accent); border-color: var(--accent);
             background: var(--accent-dim);
         }
         .hero-links a svg {
-            width: 15px;
-            height: 15px;
-            fill: none;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            width: 15px; height: 15px; fill: none; stroke: currentColor;
+            stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
         }
 
         /* ---- SECTION ---- */
-        section {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        section { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
         .section-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 32px;
-            padding-bottom: 12px;
+            font-family: 'JetBrains Mono', monospace; font-size: 12px;
+            font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 32px; padding-bottom: 12px;
             border-bottom: 1px solid var(--border);
         }
 
@@ -165,190 +106,142 @@
         .skills-section { margin-bottom: 72px; }
         .skill-group { margin-bottom: 20px; }
         .skill-group-label {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            font-size: 13px; font-weight: 500; color: var(--text-dim);
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
         }
         .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .skill-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--tag-text);
-            background: var(--tag-bg);
-            padding: 5px 12px;
-            border-radius: 5px;
-            border: 1px solid var(--border);
+            font-family: 'JetBrains Mono', monospace; font-size: 12px;
+            color: var(--tag-text); background: var(--tag-bg);
+            padding: 5px 12px; border-radius: 5px; border: 1px solid var(--border);
         }
 
         /* ---- PROJECTS ---- */
         .projects-section { margin-bottom: 72px; }
         .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 28px;
-            margin-bottom: 16px;
-            transition: all 0.25s ease;
-            text-decoration: none;
-            display: block;
-            color: inherit;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 28px; margin-bottom: 16px;
+            transition: all 0.25s ease; text-decoration: none;
+            display: block; color: inherit;
         }
         .project-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--accent);
+            background: var(--bg-card-hover); border-color: var(--accent);
             transform: translateY(-2px);
         }
         .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            gap: 12px;
+            display: flex; justify-content: space-between;
+            align-items: flex-start; margin-bottom: 12px; gap: 12px;
         }
-        .project-title {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: -0.3px;
-        }
+        .project-title { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
         .project-card:hover .project-title { color: var(--accent); }
         .project-type {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--text-dim);
-            white-space: nowrap;
-            padding: 3px 10px;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            flex-shrink: 0;
+            font-family: 'JetBrains Mono', monospace; font-size: 11px;
+            color: var(--text-dim); white-space: nowrap; padding: 3px 10px;
+            border: 1px solid var(--border); border-radius: 4px; flex-shrink: 0;
         }
         .project-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.65;
-            margin-bottom: 12px;
+            font-size: 14px; color: var(--text-muted);
+            line-height: 1.65; margin-bottom: 12px;
         }
         .project-role {
-            font-size: 13px;
-            color: var(--text-dim);
-            line-height: 1.6;
-            margin-bottom: 16px;
-            font-style: italic;
+            font-size: 13px; color: var(--text-dim); line-height: 1.6;
+            margin-bottom: 16px; font-style: italic;
         }
         .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
         .project-tags span {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: var(--tag-text);
-            background: var(--tag-bg);
-            padding: 3px 10px;
-            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace; font-size: 11px;
+            color: var(--tag-text); background: var(--tag-bg);
+            padding: 3px 10px; border-radius: 4px;
         }
         .arrow-icon {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            margin-left: 4px;
-            vertical-align: middle;
-            opacity: 0;
-            transform: translateX(-4px);
-            transition: all 0.2s;
+            display: inline-block; width: 16px; height: 16px;
+            margin-left: 4px; vertical-align: middle;
+            opacity: 0; transform: translateX(-4px); transition: all 0.2s;
         }
-        .project-card:hover .arrow-icon {
-            opacity: 1;
-            transform: translateX(0);
+        .project-card:hover .arrow-icon { opacity: 1; transform: translateX(0); }
+
+        /* ---- COMPANION CARD ---- */
+        .companion-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-left: 2px solid var(--accent); border-radius: var(--radius);
+            padding: 24px 28px; margin-bottom: 16px; margin-top: -8px;
+            margin-left: 24px; transition: all 0.25s ease;
+            text-decoration: none; display: block; color: inherit;
         }
+        .companion-card:hover {
+            background: var(--bg-card-hover); border-color: var(--accent);
+            border-left: 2px solid var(--accent); transform: translateY(-2px);
+        }
+        .companion-card:hover .project-title { color: var(--accent); }
+        .companion-card:hover .arrow-icon { opacity: 1; transform: translateX(0); }
+        .companion-card .project-title { font-size: 16px; }
 
         /* ---- EXPERIENCE ---- */
         .exp-section { margin-bottom: 72px; }
-        .exp-item {
-            padding: 24px 0;
-            border-bottom: 1px solid var(--border);
-        }
+        .exp-item { padding: 24px 0; border-bottom: 1px solid var(--border); }
         .exp-item:last-child { border-bottom: none; }
         .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 6px;
-            gap: 12px;
-            flex-wrap: wrap;
+            display: flex; justify-content: space-between; align-items: baseline;
+            margin-bottom: 6px; gap: 12px; flex-wrap: wrap;
         }
-        .exp-company {
-            font-size: 16px;
-            font-weight: 600;
-        }
+        .exp-company { font-size: 16px; font-weight: 600; }
         .exp-dates {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--text-dim);
+            font-size: 12px; color: var(--text-dim);
         }
         .exp-role {
-            font-size: 14px;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 10px;
+            font-size: 14px; color: var(--text-muted);
+            font-style: italic; margin-bottom: 10px;
         }
-        .exp-desc {
-            font-size: 14px;
-            color: var(--text-muted);
-            line-height: 1.65;
-        }
+        .exp-desc { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
 
         /* ---- EDUCATION ---- */
         .edu-section { margin-bottom: 72px; }
-        .edu-school {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
+        .edu-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 28px;
         }
-        .edu-degree {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 2px;
+        .edu-header {
+            display: flex; justify-content: space-between; align-items: baseline;
+            margin-bottom: 6px; gap: 12px; flex-wrap: wrap;
         }
+        .edu-school { font-size: 16px; font-weight: 600; }
+        .edu-dates {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px; color: var(--text-dim);
+        }
+        .edu-degree { font-size: 14px; color: var(--text-muted); margin-bottom: 2px; }
         .edu-detail {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 12px;
-            color: var(--text-dim);
+            font-size: 12px; color: var(--text-dim);
         }
 
         /* ---- FOOTER ---- */
         footer {
-            max-width: var(--max-w);
-            margin: 0 auto;
-            padding: 40px 24px 60px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
+            max-width: var(--max-w); margin: 0 auto; padding: 40px 24px 60px;
+            border-top: 1px solid var(--border); display: flex;
+            justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 16px;
         }
-        footer .copy {
-            font-size: 13px;
-            color: var(--text-dim);
-        }
+        footer .copy { font-size: 13px; color: var(--text-dim); }
         footer .footer-links { display: flex; gap: 20px; }
         footer .footer-links a {
-            font-size: 13px;
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
+            font-size: 13px; color: var(--text-muted);
+            text-decoration: none; transition: color 0.2s;
         }
         footer .footer-links a:hover { color: var(--accent); }
 
         /* ---- ANIMATIONS ---- */
         .fade-in {
-            opacity: 0;
-            transform: translateY(16px);
+            opacity: 0; transform: translateY(16px);
             animation: fadeUp 0.5s ease forwards;
         }
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
+        .scroll-reveal {
+            opacity: 0; transform: translateY(16px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
+        .scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
         .delay-1 { animation-delay: 0.1s; }
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.3s; }
@@ -360,8 +253,10 @@
             section { padding: 0 20px; }
             .project-header { flex-direction: column; }
             .exp-header { flex-direction: column; }
+            .edu-header { flex-direction: column; }
             nav .links { gap: 16px; }
             nav .links a { font-size: 12px; }
+            .companion-card { margin-left: 12px; }
         }
     </style>
 </head>
@@ -371,6 +266,7 @@
     <div class="inner">
         <div class="logo">hagen.dev</div>
         <div class="links">
+            <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#experience">Experience</a>
             <a href="https://drive.google.com/file/d/1ui3GOMvWDV04g7Oqa54Twnv9vfB1LyuM/view?usp=sharing" target="_blank">Resume</a>
@@ -379,8 +275,9 @@
 </nav>
 
 <div class="hero">
-    <h1 class="fade-in">Hagen Carriere<br><span class="accent">Software Engineer &<br>Game Developer</span></h1>
-    <p class="subtitle fade-in delay-1">C++, Python, and Lua across engines, simulations, and automated test systems.</p>
+    <h1 class="fade-in">Hagen Carriere<br><span class="accent">Software Engineer</span></h1>
+    <p class="subtitle fade-in delay-1">Game engines, real-time simulations, and automated test systems — built in C++, Python, and Lua.</p>
+    <p class="about-line fade-in delay-1">I like building systems from scratch — engines, simulations, and the test infrastructure to prove they work. Currently looking for my first full-time engineering role.</p>
     <p class="subtitle fade-in delay-1" style="margin-bottom: 32px; font-size: 14px;">University of Michigan · CS Engineering · 2025</p>
     <div class="hero-links fade-in delay-2">
         <a href="https://github.com/Hagen-Carriere" target="_blank">
@@ -398,7 +295,7 @@
     </div>
 </div>
 
-<section class="skills-section fade-in delay-3">
+<section id="skills" class="skills-section fade-in delay-3">
     <div class="section-label">Skills</div>
     <div class="skill-group">
         <div class="skill-group-label">Languages</div>
@@ -407,7 +304,6 @@
             <span class="skill-tag">C#</span>
             <span class="skill-tag">Python</span>
             <span class="skill-tag">Lua</span>
-            <span class="skill-tag">JavaScript</span>
             <span class="skill-tag">Fortran</span>
         </div>
     </div>
@@ -415,7 +311,6 @@
         <div class="skill-group-label">Tools & Platforms</div>
         <div class="skill-tags">
             <span class="skill-tag">Unity</span>
-            <span class="skill-tag">Unreal Engine</span>
             <span class="skill-tag">Git</span>
             <span class="skill-tag">Jira</span>
             <span class="skill-tag">Docker</span>
@@ -428,26 +323,40 @@
 </section>
 
 <section id="projects" class="projects-section">
-    <div class="section-label">Projects</div>
+    <div class="section-label scroll-reveal">Projects</div>
 
-    <a href="https://github.com/Hagen-Carriere/youMadeItEngine" target="_blank" class="project-card">
+    <a href="https://github.com/Hagen-Carriere/youMadeItEngine" target="_blank" class="project-card scroll-reveal">
         <div class="project-header">
             <div class="project-title">youMadeIt Engine <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
             <div class="project-type">Engine</div>
         </div>
-        <div class="project-desc">Custom 2D game engine built from scratch with a component-based actor system, deterministic Box2D physics, Lua scripting via LuaBridge, and Tiled map editor integration. Includes a 150+ case automated test suite with CI/CD.</div>
-        <div class="project-role">Sole developer — designed and built the full engine architecture, scripting layer, physics integration, and test framework.</div>
+        <div class="project-desc">Custom 2D game engine built from scratch with a component-based actor system, deterministic Box2D physics, Lua scripting via LuaBridge, and Tiled map editor integration.</div>
+        <div class="project-role">Sole developer — designed and built the full engine architecture, scripting layer, physics integration, and asset pipeline.</div>
         <div class="project-tags">
             <span>C++</span>
             <span>Lua</span>
             <span>Box2D</span>
             <span>SDL2</span>
-            <span>Pytest</span>
-            <span>GitHub Actions</span>
+            <span>JSON</span>
         </div>
     </a>
 
-    <a href="https://landens.itch.io/card-king" target="_blank" class="project-card">
+    <a href="https://github.com/Hagen-Carriere/youMadeItEngine" target="_blank" class="companion-card scroll-reveal">
+        <div class="project-header">
+            <div class="project-title">Automated Test Framework <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+            <div class="project-type">Testing</div>
+        </div>
+        <div class="project-desc">150+ test case pytest framework validating configuration integrity, physics determinism, component dependency wiring, and regression baselines. CI/CD via GitHub Actions and Jenkins with JUnit XML reporting on every push.</div>
+        <div class="project-tags">
+            <span>Python</span>
+            <span>Pytest</span>
+            <span>GitHub Actions</span>
+            <span>Jenkins</span>
+            <span>CI/CD</span>
+        </div>
+    </a>
+
+    <a href="https://landens.itch.io/card-king" target="_blank" class="project-card scroll-reveal">
         <div class="project-header">
             <div class="project-title">Card King <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
             <div class="project-type">Team Game</div>
@@ -460,38 +369,12 @@
             <span>Jira</span>
         </div>
     </a>
-
-    <a href="https://hagenc.itch.io/zelda" target="_blank" class="project-card">
-        <div class="project-header">
-            <div class="project-title">p1-Zelda <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
-            <div class="project-type">Solo Game</div>
-        </div>
-        <div class="project-desc">Recreation of the first dungeon from the original Legend of Zelda, plus a custom dungeon with an original weapon mechanic.</div>
-        <div class="project-role">Built the core weapon system, Link sprite behavior, secret rooms, and custom weapon mechanics.</div>
-        <div class="project-tags">
-            <span>C#</span>
-            <span>Unity</span>
-        </div>
-    </a>
-
-    <a href="https://hagenc.itch.io/sliding-stars" target="_blank" class="project-card">
-        <div class="project-header">
-            <div class="project-title">Sliding Stars <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
-            <div class="project-type">Solo Game</div>
-        </div>
-        <div class="project-desc">Platformer built around a unique clone-and-swap mechanic — spawn a clone, then teleport to its position to navigate levels.</div>
-        <div class="project-role">Designed and developed the core mechanic, level design, and player sprite behavior.</div>
-        <div class="project-tags">
-            <span>C#</span>
-            <span>Unity</span>
-        </div>
-    </a>
 </section>
 
 <section id="experience" class="exp-section">
-    <div class="section-label">Experience</div>
+    <div class="section-label scroll-reveal">Experience</div>
 
-    <div class="exp-item">
+    <div class="exp-item scroll-reveal">
         <div class="exp-header">
             <div class="exp-company">University of Michigan</div>
             <div class="exp-dates">May 2024 — Aug 2024</div>
@@ -500,7 +383,7 @@
         <div class="exp-desc">Diagnosed and fixed 20+ year-old logic defects in a legacy Fortran codebase through systematic tracing and verification testing. Refactored the radiation pulse analysis system to Python with improved testability and automated data validation. Designed testing procedures with cross-functional researchers to ensure reproducible outputs.</div>
     </div>
 
-    <div class="exp-item">
+    <div class="exp-item scroll-reveal">
         <div class="exp-header">
             <div class="exp-company">Oasis Advanced Engineering</div>
             <div class="exp-dates">May 2022 — Aug 2022</div>
@@ -511,20 +394,38 @@
 </section>
 
 <section class="edu-section">
-    <div class="section-label">Education</div>
-    <div class="edu-school">University of Michigan</div>
-    <div class="edu-degree">Bachelor of Science in Engineering, Computer Science Engineering</div>
-    <div class="edu-detail">2025 · GPA 3.53 · Game Engine Dev, Cybersecurity, Data Structures, Algorithms</div>
+    <div class="section-label scroll-reveal">Education</div>
+    <div class="edu-card scroll-reveal">
+        <div class="edu-header">
+            <div class="edu-school">University of Michigan</div>
+            <div class="edu-dates">2025</div>
+        </div>
+        <div class="edu-degree">Bachelor of Science in Engineering, Computer Science Engineering</div>
+        <div class="edu-detail">GPA 3.53 · Game Engine Dev, Cybersecurity, Data Structures, Algorithms</div>
+    </div>
 </section>
 
 <footer>
-    <div class="copy">Hagen Carriere · 2025</div>
+    <div class="copy">Hagen Carriere · 2026</div>
     <div class="footer-links">
         <a href="https://github.com/Hagen-Carriere" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/hagen-carriere-74424226a/" target="_blank">LinkedIn</a>
         <a href="mailto:Hagenc@umich.edu">Hagenc@umich.edu</a>
     </div>
 </footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
