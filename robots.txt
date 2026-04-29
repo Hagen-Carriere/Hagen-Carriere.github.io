@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hagen-carriere.github.io/sitemap.xml
